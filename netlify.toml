@@ -1,0 +1,19 @@
+[[headers]]  
+  for = "/*"  
+  [headers.values]  
+    Cache-Control = "public, max-age=3600"  
+    X-Frame-Options = "DENY" # 防点击劫持  
+
+[[headers]]  
+  for = "/assets/*"  
+  [headers.values]  
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[plugins]]  
+package = "@netlify/plugin-lighthouse"  
+
+[[plugins]]  
+package = "@netlify/plugin-image-optim"  
+  [plugins.inputs]  
+  compress = true  
+  lazy = true  
